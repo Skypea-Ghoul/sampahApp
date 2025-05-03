@@ -15,5 +15,10 @@
     },
     "dependencies": {
         "vercel-php": "^0.7.3"
-    }
+    },
+    "build": {
+        "builder": "NIXPACKS",
+        "buildCommand": "composer install && php artisan config:cache",
+        "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT"
+      }
 }
