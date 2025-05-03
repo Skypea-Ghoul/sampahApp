@@ -1,25 +1,14 @@
 {
   "version": 2,
   "framework": null,  
-  "builds": [
-    {
-      "src": "composer.json",
-      "use": "@vercel/php",
-      "config": {
-        "phpVersion": "8.3",
-        "composer": {
-          "installFlags": ["--no-dev", "--optimize-autoloader"]
-        },
-        "outputDirectory": "public"
-      }
-    }
-  ],
+  "functions" : {
+    "api/index.php" : { "runtime": "vercel-php@0.6.0"}
+  },
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(.*)", "dest": "/public/index.php" }
   ],
   "public": true,
-  "buildCommand": "composer install --no-dev && php artisan optimize:clear && php artisan config:cache && php artisan route:cache && php artisan view:cache && vite build",
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
@@ -34,10 +23,7 @@
     "VIEW_COMPILED_PATH": "/tmp/cache/views",
     "CACHE_DRIVER": "array",
     "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "cookie",
-    "DB_CONNECTION": "pgsql",
-    "DB_PORT": "5432",
-    "DB_URL": "postgresql://postgres:GjmgZ8XArNkrJebt@db.zqeqcmlhsjhljvmbsiya.supabase.co:5432/postgres",
-    "DB_PASSWORD": "GjmgZ8XArNkrJebt"
+    "SESSION_DRIVER": "cookie"
+    
   }
 }
