@@ -1,36 +1,33 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "./*",
-        "use": "@vercel/php@0.6.1",
-        "config": {
-          "phpVersion": "8.3"
-        }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/public/$1"
-      }
-    ],
-    "env": {
+  "version": 2,
+  "framework": null,
+  "functions": {
+      "api/index.php": { "runtime": "vercel-php@0.6.1" }
+  },
+  "routes": [
+      { "src": "/build/(.*)", "dest": "/public/build/" },
+      { "src": "/(.*)", "dest": "/api/index.php" }
+  ],
+  "public": true,
+  "buildCommand": "vite build",
+  "outputDirectory": "public",
+  "env": {
       "APP_ENV": "production",
       "APP_DEBUG": "false",
-      "APP_URL": "https://sampah-apssss.vercel.app",
+      "APP_URL": "https://sampah-app.vercel",
+      "APP_KEY": "base64:XN4iPeBN//CIz7XGbcumHVhwWAPBr9ISGCIUN6d0wks=",
       "APP_CONFIG_CACHE": "/tmp/config.php",
-      "APP_EVENT_CACHE": "/tmp/events.php",
-      "APP_PACKAGE_CACHE": "/tmp/packages.php",
-      "APP_SERVICES_CACHE": "/tmp/services.php",
+      "APP_EVENTS_CACHE": "/tmp/events.php",
+      "APP_PACKAGES_CACHE": "/tmp/packages.php",
       "APP_ROUTES_CACHE": "/tmp/routes.php",
-      "DB_CONNECTION": "pgsql",
-      "DB_URL": "postgresql://postgres:GjmgZ8XArNkrJebt@db.zqeqcmlhsjhljvmbsiya.supabase.co:5432/postgres",
-      "DB_PASSWORD": "GjmgZ8XArNkrJebt",
-      "VIEW_COMPILED_PATH": "/tmp/cache/views",
+      "APP_SERVICES_CACHE": "/tmp/services.php",
+      "VIEW_COMPILED_PATH": "/tmp",
       "CACHE_DRIVER": "array",
       "LOG_CHANNEL": "stderr",
-      "SESSION_DRIVER": "cookie"
-    },
-    "outputDirectory": "public"
+      "SESSION_DRIVER": "cookie",
+      "DB_CONNECTION": "pgsql",
+      "DB_PORT": "5432",
+      "DB_URL": "postgresql://postgres:GjmgZ8XArNkrJebt@db.zqeqcmlhsjhljvmbsiya.supabase.co:5432/postgres",
+      "DB_PASSWORD": "GjmgZ8XArNkrJebt"
   }
+}
