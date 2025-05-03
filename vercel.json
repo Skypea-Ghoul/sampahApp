@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "framework": null,
+  "framework": "laravel",
   "builds": [
     {
       "src": "composer.json",
@@ -8,7 +8,7 @@
       "config": {
         "phpVersion": "8.3",
         "composer": {
-          "installFlags": [ "--no-dev", "--optimize-autoloader" ]
+          "installFlags": ["--no-dev", "--optimize-autoloader"]
         },
         "outputDirectory": "public"
       }
@@ -17,27 +17,9 @@
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(.*)", "dest": "/public/index.php" }
+
+
   ],
-  "public": true,
   "buildCommand": "composer install --no-dev && php artisan optimize:clear && php artisan config:cache && php artisan route:cache && php artisan view:cache && vite build",
-  "outputDirectory": "public",
-  "env": {
-    "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "APP_URL": "https://sampah-app.vercel.app",
-    "APP_KEY": "base64:XN4iPeBN//CIz7XGbcumHVhwWAPBr9ISGCIUN6d0wks=",
-    "APP_CONFIG_CACHE": "/tmp/config.php",
-    "APP_EVENTS_CACHE": "/tmp/events.php",
-    "APP_PACKAGES_CACHE": "/tmp/packages.php",
-    "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp/cache/views",
-    "CACHE_DRIVER": "array",
-    "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "cookie",
-    "DB_CONNECTION": "pgsql",
-    "DB_PORT": "5432",
-    "DB_URL": "postgresql://postgres:GjmgZ8XArNkrJebt@db.zqeqcmlhsjhljvmbsiya.supabase.co:5432/postgres",
-    "DB_PASSWORD": "GjmgZ8XArNkrJebt"
-  }
+  "outputDirectory": "public"
 }
