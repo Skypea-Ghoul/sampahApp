@@ -5,22 +5,23 @@
     "api/index.php" : { "runtime": "vercel-php@0.6.0"}
   },
   "routes": [
-    { "src": "/build/(.*)", "dest": "/public/build/$1" },
-    { "src": "/(.*)", "dest": "/public/index.php" }
+    { "src": "/(.*)", "dest": "/api/index.php" }
   ],
   "public": true,
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
     "APP_URL": "https://sampah-app.vercel.app",
-    "APP_KEY": "base64:XN4iPeBN//CIz7XGbcumHVhwWAPBr9ISGCIUN6d0wks=",
+    "APP_KEY": "base64:yY65sVrEQFMFS5t/56oDhE9DL/i4ed0TKqiWEFhOIPk=",
+
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
     "APP_ROUTES_CACHE": "/tmp/routes.php",
     "APP_SERVICES_CACHE": "/tmp/services.php",
     "VIEW_COMPILED_PATH": "/tmp/cache/views",
+    
     "CACHE_DRIVER": "array",
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
